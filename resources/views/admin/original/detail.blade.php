@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Detail Koleksi Premium')
+@section('title', 'Detail Koleksi Original')
 
 @section('content')
     <div class="container mx-auto px-4 py-8">
-        <a href="{{ route('admin.koleksi.premium') }}" class="text-yellow-500 hover:text-yellow-400 mb-8 inline-block">
-            &larr; KEMBALI KE KOLEKSI PREMIUM
+        <a href="{{ route('admin.koleksi.original') }}" class="text-yellow-500 hover:text-yellow-400 mb-8 inline-block">
+            &larr; KEMBALI KE KOLEKSI ORIGINAL
         </a>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">

@@ -1,23 +1,23 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Detail Koleksi Premium')
+@section('title', 'Detail Aksesoris')
 
 @section('content')
     <div class="container mx-auto px-4 py-8">
-        <a href="{{ route('admin.koleksi.premium') }}" class="text-yellow-500 hover:text-yellow-400 mb-8 inline-block">
-            &larr; KEMBALI KE KOLEKSI PREMIUM
+        <a href="{{ route('admin.aksesoris') }}" class="text-yellow-500 hover:text-yellow-400 mb-8 inline-block">
+            &larr; KEMBALI KE AKSESORIS
         </a>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="mb-4">
-                    <img src="https://via.placeholder.com/600x700" alt="Koleksi Utama"
+                    <img src="https://via.placeholder.com/600x700" alt="Aksesoris Utama"
                         class="w-full h-auto rounded-lg shadow-lg">
                 </div>
             </div>
 
             <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-                <h1 class="text-3xl font-bold text-white mb-2">SUMATERA</h1>
+                <h1 class="text-3xl font-bold text-white mb-2">Aksesoris A</h1>
                 <h2 class="text-5xl font-extrabold text-white mb-6">001</h2>
 
                 <div class="mb-8">
