@@ -21,6 +21,13 @@ Route::middleware('auth:admin')->group(function () {
         return view('admin.premium.index');
     })->name('admin.koleksi.premium');
 
+    // Rute baru untuk detail koleksi premium
+    Route::get('/koleksi/premium/{id}', function ($id) {
+        // Di sini Anda bisa menambahkan logika untuk mengambil data koleksi dari database berdasarkan $id
+        // Untuk saat ini, kita hanya akan menampilkan view-nya saja
+        return view('admin.premium.detail', ['id' => $id]);
+    })->name('admin.koleksi.premium.detail');
+
     Route::get('/koleksi/original', function () {
         return view('admin.original.index');
     })->name('admin.koleksi.original');
