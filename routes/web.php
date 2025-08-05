@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\PremiumCollectionController;
+use App\Http\Controllers\RenterController;
 
 // Rute untuk menampilkan halaman login admin
 Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('guest:admin')->name('admin.login');
@@ -16,10 +18,15 @@ Route::middleware('auth:admin')->group(function () {
         return view('admin.premium.index'); // Langsung arahkan ke koleksi premium
     })->name('dashboard');
 
-    // Rute untuk koleksi
-    Route::get('/koleksi/premium', function () {
-        return view('admin.premium.index');
-    })->name('admin.koleksi.premium');
+    Route::get('/koleksi/premium', [PremiumCollectionController::class, 'index'])->name('admin.koleksi.premium');
+    Route::get('/koleksi/premium/create', [PremiumCollectionController::class, 'create'])->name('admin.koleksi.premium.create');
+    Route::post('/koleksi/premium', [PremiumCollectionController::class, 'store'])->name('admin.koleksi.premium.store');
+    Route::get('/koleksi/premium/{collection}', [PremiumCollectionController::class, 'show'])->name('admin.koleksi.premium.detail');
+    Route::get('/koleksi/premium/{collection}/edit', [PremiumCollectionController::class, 'edit'])->name('admin.koleksi.premium.edit');
+    Route::put('/koleksi/premium/{collection}', [PremiumCollectionController::class, 'update'])->name('admin.koleksi.premium.update');
+    Route::delete('/koleksi/premium/{collection}', [PremiumCollectionController::class, 'destroy'])->name('admin.koleksi.premium.destroy');
+    Route::post('/koleksi/premium/{collection}/renters', [RenterController::class, 'store'])->name('admin.renters.store');
+    Route::delete('/renters/{renter}', [RenterController::class, 'destroy'])->name('admin.renters.destroy');
 
     // Rute baru untuk detail koleksi premium
     Route::get('/koleksi/premium/{id}', function ($id) {
