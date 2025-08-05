@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold">Aksesoris Pilihan</h1>
-        <p class="text-gray-400 mt-2">Lengkapi penampilanmu dengan aksesoris terbaik dari kami.</p>
+        <h1 class="text-4xl font-bold">Aksesoris</h1>
+        <p class="text-gray-400 mt-2">Halaman Kelola AKsesoris</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

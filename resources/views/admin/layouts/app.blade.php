@@ -16,7 +16,7 @@
         @yield('content')
     </main>
 
-    @include('admin.layouts.footer')
+    {{-- Baris @include('admin.layouts.footer') telah dihapus --}}
 
 </body>
 

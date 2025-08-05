@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold">Koleksi Premium Kami</h1>
-        <p class="text-gray-400 mt-2">Temukan kostum impianmu untuk setiap momen spesial.</p>
+        <h1 class="text-4xl font-bold">Koleksi Premium</h1>
+        <p class="text-gray-400 mt-2">Halaman Kelola Kostum Premium</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
