@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\PremiumCollection;
@@ -7,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PremiumCollectionController extends Controller
 {
-    // Menampilkan semua koleksi
+    // Method ini yang dipanggil oleh route dan mengirimkan variabel $collections
     public function index()
     {
         $collections = PremiumCollection::latest()->paginate(10);
@@ -47,16 +48,15 @@ class PremiumCollectionController extends Controller
 
     // Menampilkan detail satu koleksi
     public function show(PremiumCollection $collection)
-{
-    $collection->load('renters'); // Eager load relasi renters
+    {
+        $collection->load('renters');
 
-    // Ambil semua tanggal sewa untuk koleksi ini
-    $rentedDates = $collection->renters->pluck('rental_date')->map(function ($date) {
-        return $date->format('Y-m-d');
-    })->toArray();
+        $rentedDates = $collection->renters->pluck('rental_date')->map(function ($date) {
+            return $date->format('Y-m-d');
+        })->toArray();
 
-    return view('admin.premium.detail', compact('collection', 'rentedDates'));
-}
+        return view('admin.premium.detail', compact('collection', 'rentedDates'));
+    }
 
     // Menampilkan form untuk mengedit koleksi
     public function edit(PremiumCollection $collection)
@@ -76,7 +76,6 @@ class PremiumCollectionController extends Controller
 
         $imagePath = $collection->image;
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
             if ($imagePath) {
                 Storage::disk('public')->delete($imagePath);
             }
@@ -96,7 +95,6 @@ class PremiumCollectionController extends Controller
     // Menghapus koleksi dari database
     public function destroy(PremiumCollection $collection)
     {
-        // Hapus gambar dari storage
         if ($collection->image) {
             Storage::disk('public')->delete($collection->image);
         }

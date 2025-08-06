@@ -10,7 +10,7 @@
         </div>
         <a href="{{ route('admin.koleksi.premium.create') }}"
             class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex-shrink-0">
-            Tambah Koleksi
+            Tambah Koleksi Premium
         </a>
     </div>
 

@@ -22,7 +22,10 @@ class AdminLoginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard'); // Arahkan ke dashboard setelah berhasil
+
+            // --- INI YANG DIPERBAIKI ---
+            // Arahkan ke halaman koleksi premium setelah berhasil
+            return redirect()->intended(route('admin.koleksi.premium'));
         }
 
         return back()->withErrors([
