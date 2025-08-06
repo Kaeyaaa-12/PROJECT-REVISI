@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\PremiumCollectionController; // <-- TAMBAHKAN INI
 use App\Http\Controllers\RenterController;
+use App\Http\Controllers\OriginalCollectionController;
+use App\Http\Controllers\RenterOriginalController;
 
 // Rute untuk menampilkan halaman login admin
 Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('guest:admin')->name('admin.login');
@@ -26,18 +28,28 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/koleksi/premium/{collection}/edit', [PremiumCollectionController::class, 'edit'])->name('admin.koleksi.premium.edit');
     Route::put('/koleksi/premium/{collection}', [PremiumCollectionController::class, 'update'])->name('admin.koleksi.premium.update');
     Route::delete('/koleksi/premium/{collection}', [PremiumCollectionController::class, 'destroy'])->name('admin.koleksi.premium.destroy');
-
     // --- Route untuk Penyewa ---
     Route::post('/koleksi/premium/{collection}/renters', [RenterController::class, 'store'])->name('admin.renters.store');
     Route::delete('/renters/{renter}', [RenterController::class, 'destroy'])->name('admin.renters.destroy');
 
-    // Route untuk koleksi original dan aksesoris (masih menggunakan view langsung)
-    Route::get('/koleksi/original', function () {
-        return view('admin.original.index');
-    })->name('admin.koleksi.original');
-    Route::get('/koleksi/original/{id}', function ($id) {
-        return view('admin.original.detail', ['id' => $id]);
-    })->name('admin.koleksi.original.detail');
+    Route::get('/koleksi/original', [OriginalCollectionController::class, 'index'])->name('admin.koleksi.original');
+    Route::get('/koleksi/original/create', [OriginalCollectionController::class, 'create'])->name('admin.koleksi.original.create');
+    Route::post('/koleksi/original', [OriginalCollectionController::class, 'store'])->name('admin.koleksi.original.store');
+    Route::get('/koleksi/original/{collection}', [OriginalCollectionController::class, 'show'])->name('admin.koleksi.original.detail');
+    Route::get('/koleksi/original/{collection}/edit', [OriginalCollectionController::class, 'edit'])->name('admin.koleksi.original.edit');
+    Route::put('/koleksi/original/{collection}', [OriginalCollectionController::class, 'update'])->name('admin.koleksi.original.update');
+    Route::delete('/koleksi/original/{collection}', [OriginalCollectionController::class, 'destroy'])->name('admin.koleksi.original.destroy');
+    // --- Route untuk Penyewa Original ---
+    Route::post('/koleksi/original/{collection}/renters', [RenterOriginalController::class, 'store'])->name('admin.renters.original.store');
+    Route::delete('/renters/original/{renter}', [RenterOriginalController::class, 'destroy'])->name('admin.renters.original.destroy');
+
+    // // Route untuk koleksi original dan aksesoris (masih menggunakan view langsung)
+    // Route::get('/koleksi/original', function () {
+    //     return view('admin.original.index');
+    // })->name('admin.koleksi.original');
+    // Route::get('/koleksi/original/{id}', function ($id) {
+    //     return view('admin.original.detail', ['id' => $id]);
+    // })->name('admin.koleksi.original.detail');
 
     Route::get('/aksesoris', function () {
         return view('admin.aksesoris.index');
