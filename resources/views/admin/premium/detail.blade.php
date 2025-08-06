@@ -96,6 +96,8 @@
                             <span class="text-gray-400">Tersedia</span>
                             <div class="w-4 h-4 bg-red-600 rounded-full mr-2 ml-4"></div>
                             <span class="text-gray-400">Disewa</span>
+                            <div class="w-4 h-4 bg-blue-500 rounded-full mr-2 ml-4"></div>
+                            <span class="text-gray-400">Hari Ini</span>
                         </div>
                     </div>
                 </div>
@@ -107,6 +109,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             const rentedDates = @json($rentedDates);
             let currentDate = new Date();
+            // Simpan tanggal hari ini
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
 
             const monthYearEl = document.getElementById('month-year');
             const calendarDaysEl = document.getElementById('calendar-days');
@@ -134,10 +139,17 @@
                 // Isi hari-hari dalam bulan
                 for (let day = 1; day <= daysInMonth; day++) {
                     const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                    let dayClass = 'bg-green-500 text-white rounded-full p-2';
+                    const loopDate = new Date(year, month, day);
+
+                    let dayClass = 'text-white rounded-full p-2';
 
                     if (rentedDates.includes(dateStr)) {
-                        dayClass = 'bg-red-600 text-white rounded-full p-2';
+                        dayClass += ' bg-red-600';
+                        // Tambahkan kondisi untuk menandai hari ini
+                    } else if (loopDate.getTime() === today.getTime()) {
+                        dayClass += ' bg-blue-500';
+                    } else {
+                        dayClass += ' bg-green-500';
                     }
 
                     calendarDaysEl.innerHTML += `<div class="${dayClass}">${day}</div>`;
