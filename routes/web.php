@@ -6,6 +6,8 @@ use App\Http\Controllers\PremiumCollectionController; // <-- TAMBAHKAN INI
 use App\Http\Controllers\RenterController;
 use App\Http\Controllers\OriginalCollectionController;
 use App\Http\Controllers\RenterOriginalController;
+use App\Http\Controllers\AccessoryController;
+use App\Http\Controllers\RenterAccessoryController;
 
 // Rute untuk menampilkan halaman login admin
 Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('guest:admin')->name('admin.login');
@@ -43,6 +45,17 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/koleksi/original/{collection}/renters', [RenterOriginalController::class, 'store'])->name('admin.renters.original.store');
     Route::delete('/renters/original/{renter}', [RenterOriginalController::class, 'destroy'])->name('admin.renters.original.destroy');
 
+    Route::get('/aksesoris', [AccessoryController::class, 'index'])->name('admin.aksesoris');
+    Route::get('/aksesoris/create', [AccessoryController::class, 'create'])->name('admin.aksesoris.create');
+    Route::post('/aksesoris', [AccessoryController::class, 'store'])->name('admin.aksesoris.store');
+    Route::get('/aksesoris/{accessory}', [AccessoryController::class, 'show'])->name('admin.aksesoris.detail');
+    Route::get('/aksesoris/{accessory}/edit', [AccessoryController::class, 'edit'])->name('admin.aksesoris.edit');
+    Route::put('/aksesoris/{accessory}', [AccessoryController::class, 'update'])->name('admin.aksesoris.update');
+    Route::delete('/aksesoris/{accessory}', [AccessoryController::class, 'destroy'])->name('admin.aksesoris.destroy');
+    // --- Route untuk Penyewa Aksesoris ---
+    Route::post('/aksesoris/{accessory}/renters', [RenterAccessoryController::class, 'store'])->name('admin.renters.accessory.store');
+    Route::delete('/renters/accessory/{renter}', [RenterAccessoryController::class, 'destroy'])->name('admin.renters.accessory.destroy');
+
     // // Route untuk koleksi original dan aksesoris (masih menggunakan view langsung)
     // Route::get('/koleksi/original', function () {
     //     return view('admin.original.index');
@@ -51,12 +64,12 @@ Route::middleware('auth:admin')->group(function () {
     //     return view('admin.original.detail', ['id' => $id]);
     // })->name('admin.koleksi.original.detail');
 
-    Route::get('/aksesoris', function () {
-        return view('admin.aksesoris.index');
-    })->name('admin.aksesoris');
-    Route::get('/aksesoris/{id}', function ($id) {
-        return view('admin.aksesoris.detail', ['id' => $id]);
-    })->name('admin.aksesoris.detail');
+    // Route::get('/aksesoris', function () {
+    //     return view('admin.aksesoris.index');
+    // })->name('admin.aksesoris');
+    // Route::get('/aksesoris/{id}', function ($id) {
+    //     return view('admin.aksesoris.detail', ['id' => $id]);
+    // })->name('admin.aksesoris.detail');
 
 
     // Rute untuk logout
