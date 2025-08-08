@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    {{-- Menambahkan Font Awesome untuk ikon --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .login-bg {
             background-image: url('{{ asset('assets/images/bglogin.png') }}');
@@ -77,6 +79,35 @@
                     </button>
                 </div>
             </form>
+
+            {{-- [PERUBAHAN] Ikon Kontak dan Lokasi yang Lebih Rapi --}}
+            <div class="mt-8 pt-6 border-t border-gray-600">
+                <div class="flex justify-center items-center space-x-6 md:space-x-8 text-gray-300 text-sm">
+                    {{-- WhatsApp --}}
+                    <a href="https://wa.me/6285235743700" target="_blank"
+                        class="flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300">
+                        <i class="fab fa-whatsapp fa-lg"></i>
+                        <span>085235743700</span>
+                    </a>
+
+                    {{-- Instagram --}}
+                    <a href="https://www.instagram.com/amiracollection2023?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank"
+                        class="flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300">
+                        <i class="fab fa-instagram fa-lg"></i>
+                        <span>amiracollection2023</span>
+                    </a>
+
+                    {{-- Lokasi --}}
+                    <a href="https://maps.app.goo.gl/AKzwrUiD8fZh3fA69" target="_blank"
+                        class="flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span>Lokasi Amira</span>
+                    </a>
+                </div>
+            </div>
+            {{-- Akhir Perubahan --}}
+
         </div>
     </div>
 </body>
