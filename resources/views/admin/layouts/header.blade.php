@@ -3,7 +3,7 @@
         <nav class="flex items-center justify-between h-16">
             <div class="flex items-center">
                 <a href="{{ route('dashboard') }}" class="text-2xl font-bold text-white tracking-wider">AMIRA
-                    COLLECTION</a>
+                    COLLECTIONS</a>
                 <div class="hidden md:flex ml-10 space-x-8">
                     <a href="{{ route('admin.koleksi.premium') }}" class="text-white font-semibold">Koleksi Premium</a>
                     <a href="{{ route('admin.koleksi.original') }}" class="text-white font-semibold">Koleksi Original</a>

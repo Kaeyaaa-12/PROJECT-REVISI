@@ -27,11 +27,11 @@
                 @endif
 
                 <div class="mb-8">
-                    <h3 class="text-lg font-semibold text-gray-300 mb-4">Tambah Penyewa Baru</h3>
+                    <h3 class="text-lg font-semibold text-gray-300 mb-4">Tambah Kode Halaman</h3>
                     <form action="{{ route('admin.renters.store', $collection) }}" method="POST">
                         @csrf
                         <div class="space-y-3 mb-4">
-                            <input type="text" name="name" placeholder="Nama Penyewa / Nomor"
+                            <input type="text" name="name" placeholder="Nama / Kode Halaman"
                                 class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-white" required>
                             <input type="date" name="rental_date"
                                 class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-white" required>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="mb-8">
-                    <h3 class="text-lg font-semibold text-gray-300 mb-4">Daftar Penyewa</h3>
+                    <h3 class="text-lg font-semibold text-gray-300 mb-4">Daftar Kode Halaman</h3>
                     <div class="space-y-3 mb-4 max-h-48 overflow-y-auto">
                         @forelse ($collection->renters->sortBy('rental_date') as $renter)
                             <div class="flex justify-between items-center bg-gray-700 p-3 rounded-md">
