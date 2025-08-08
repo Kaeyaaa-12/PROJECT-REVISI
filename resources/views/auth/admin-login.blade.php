@@ -37,7 +37,7 @@
 
             {{-- Logo yang diperbesar --}}
             <img src="{{ asset('assets/images/logoamira.png') }}" alt="Amira Collections Logo"
-                class="w-40 h-40 mx-auto mb-6">
+                class="w-40 h-40 mx-auto mb-4">
 
             @if ($errors->any())
                 <div class="text-red-500 text-sm mb-4">
