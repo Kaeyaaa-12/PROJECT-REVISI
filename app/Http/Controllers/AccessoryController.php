@@ -10,7 +10,7 @@ class AccessoryController extends Controller
 {
     public function index()
     {
-        $accessories = Accessory::latest()->paginate(10);
+        $accessories = Accessory::latest()->paginate(12);
         return view('admin.aksesoris.index', compact('accessories'));
     }
 

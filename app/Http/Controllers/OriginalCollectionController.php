@@ -10,7 +10,7 @@ class OriginalCollectionController extends Controller
 {
     public function index()
     {
-        $collections = OriginalCollection::latest()->paginate(10);
+        $collections = OriginalCollection::latest()->paginate(12);
         return view('admin.original.index', compact('collections'));
     }
 

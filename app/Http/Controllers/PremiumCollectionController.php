@@ -11,7 +11,7 @@ class PremiumCollectionController extends Controller
     // Method ini yang dipanggil oleh route dan mengirimkan variabel $collections
     public function index()
     {
-        $collections = PremiumCollection::latest()->paginate(10);
+        $collections = PremiumCollection::latest()->paginate(12);
         return view('admin.premium.index', compact('collections'));
     }
 
