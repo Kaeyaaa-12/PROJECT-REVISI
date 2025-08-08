@@ -9,6 +9,9 @@ use App\Http\Controllers\RenterOriginalController;
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\RenterAccessoryController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Auth\AdminForgotPasswordController;
+use App\Http\Controllers\Auth\AdminResetPasswordController;
+
 
 // Rute untuk menampilkan halaman login admin
 Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('guest:admin')->name('admin.login');
@@ -16,9 +19,14 @@ Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('gue
 // Rute untuk memproses login admin
 Route::post('/login', [AdminLoginController::class, 'login'])->middleware('guest:admin')->name('admin.login.attempt');
 
-Route::get('/admin/forgot-password', function () {
-    return view('auth.admin-forgot-password');
-})->middleware('guest:admin')->name('admin.password.request');
+// Rute untuk menampilkan form lupa password
+Route::get('/admin/forgot-password', [AdminForgotPasswordController::class, 'showLinkRequestForm'])->middleware('guest:admin')->name('admin.password.request');
+// Rute untuk mengirim email reset password
+Route::post('/admin/forgot-password', [AdminForgotPasswordController::class, 'sendResetLinkEmail'])->middleware('guest:admin')->name('admin.password.email');
+// Route untuk menampilkan form reset password (link dari email)
+Route::get('/admin/reset-password/{token}', [AdminResetPasswordController::class, 'showResetForm'])->middleware('guest:admin')->name('admin.password.reset');
+// Route untuk menyimpan password baru
+Route::post('/admin/reset-password', [AdminResetPasswordController::class, 'reset'])->middleware('guest:admin')->name('admin.password.update');
 
 // Grup rute yang memerlukan autentikasi admin
 Route::middleware('auth:admin')->group(function () {

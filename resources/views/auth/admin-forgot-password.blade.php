@@ -42,12 +42,15 @@
             </p>
 
             {{-- Anda bisa menambahkan logic untuk mengirim email di sini nanti --}}
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('admin.password.email') }}">
                 @csrf
                 <div>
                     <label for="email" class="text-sm font-bold text-gray-400 text-left block">EMAIL</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
                         class="w-full p-2 mt-1 text-gray-100 bg-gray-700 bg-opacity-50 border border-gray-600 rounded-md focus:border-yellow-500 focus:ring focus:ring-yellow-500 focus:ring-opacity-50">
+                    @error('email')
+                        <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="mt-6">
@@ -63,6 +66,13 @@
                     </a>
                 </div>
             </form>
+
+            {{-- Tampilkan pesan status jika ada --}}
+            @if (session('status'))
+                <div class="mt-4 text-sm text-green-400">
+                    {{ session('status') }}
+                </div>
+            @endif
         </div>
     </div>
 </body>
