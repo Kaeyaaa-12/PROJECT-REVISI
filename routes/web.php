@@ -8,6 +8,7 @@ use App\Http\Controllers\OriginalCollectionController;
 use App\Http\Controllers\RenterOriginalController;
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\RenterAccessoryController;
+use App\Http\Controllers\SearchController;
 
 // Rute untuk menampilkan halaman login admin
 Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('guest:admin')->name('admin.login');
@@ -21,6 +22,7 @@ Route::middleware('auth:admin')->group(function () {
     // Rute dashboard ini bisa dihapus jika tidak ada halaman dashboard khusus,
     // karena redirect akan langsung ke 'admin.koleksi.premium'
     Route::get('/dashboard', [PremiumCollectionController::class, 'index'])->name('dashboard');
+    Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('admin.search');
 
     // --- Route untuk Koleksi Premium (INI YANG DIPERBAIKI) ---
     Route::get('/koleksi/premium', [PremiumCollectionController::class, 'index'])->name('admin.koleksi.premium');

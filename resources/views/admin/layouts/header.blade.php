@@ -28,10 +28,11 @@
             </div>
 
             <div class="flex items-center space-x-4">
-                <div class="relative hidden sm:block">
-                    <input type="text"
+                {{-- Form Pencarian --}}
+                <form action="{{ route('admin.search') }}" method="GET" class="relative hidden sm:block">
+                    <input type="text" name="query"
                         class="bg-gray-800 text-white rounded-full py-2 pl-10 pr-4 w-64 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                        placeholder="Search...">
+                        placeholder="Cari koleksi...">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                             fill="currentColor">
@@ -40,7 +41,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                </div>
+                </form>
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     <button type="submit" class="text-gray-300 hover:text-white font-semibold">Logout</button>
