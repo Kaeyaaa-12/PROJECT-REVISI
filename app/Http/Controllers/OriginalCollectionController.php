@@ -25,7 +25,7 @@ class OriginalCollectionController extends Controller
             'name' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $imagePath = null;
@@ -66,7 +66,7 @@ public function update(Request $request, OriginalCollection $collection)
         'name' => 'required|string|max:255',
         'category' => 'required|string|max:255',
         'stock' => 'required|integer|min:0',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
     ]);
 
     $imagePath = $collection->image;
