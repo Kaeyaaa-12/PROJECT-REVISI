@@ -14,7 +14,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-900 text-white font-sans">
+{{-- UBAH BAGIAN INI --}}
+
+<body class="bg-gray-900 text-white font-sans" style="background-color: #2d2d2d;">
 
     @include('admin.layouts.header')
 
