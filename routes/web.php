@@ -16,6 +16,10 @@ Route::get('/', [AdminLoginController::class, 'showLoginForm'])->middleware('gue
 // Rute untuk memproses login admin
 Route::post('/login', [AdminLoginController::class, 'login'])->middleware('guest:admin')->name('admin.login.attempt');
 
+Route::get('/admin/forgot-password', function () {
+    return view('auth.admin-forgot-password');
+})->middleware('guest:admin')->name('admin.password.request');
+
 // Grup rute yang memerlukan autentikasi admin
 Route::middleware('auth:admin')->group(function () {
     // Dashboard (sekarang akan diarahkan oleh AdminLoginController)
