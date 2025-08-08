@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         .login-bg {
-            background-image: url('{{ asset('assets/images/halaman utama.jpg') }}');
+            background-image: url('{{ asset('assets/images/bglogin.png') }}');
             background-size: cover;
             background-position: center;
         }
@@ -17,11 +17,6 @@
 
 <body class="antialiased">
     <div class="min-h-screen flex flex-col items-center justify-center login-bg">
-        <div class="text-center mb-8">
-            <h1 class="text-white text-5xl font-extralight tracking-[1em]">E A R T H</h1>
-            <p class="text-white text-xs mt-2">"He felt with a tidal force, the way the ocean feels for the moon." - E.E.
-                Cummings (contoh)</p>
-        </div>
         <div class="w-full max-w-sm p-8 space-y-6 bg-black bg-opacity-60 rounded-lg shadow-lg">
             <h2 class="text-xl font-bold text-center text-yellow-500">ADMIN LOGIN</h2>
 
