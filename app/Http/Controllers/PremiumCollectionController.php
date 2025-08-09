@@ -28,7 +28,7 @@ class PremiumCollectionController extends Controller
             'name' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4960',
         ]);
 
         $imagePath = null;
@@ -71,7 +71,7 @@ class PremiumCollectionController extends Controller
             'name' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'stock' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4960',
         ]);
 
         $imagePath = $collection->image;

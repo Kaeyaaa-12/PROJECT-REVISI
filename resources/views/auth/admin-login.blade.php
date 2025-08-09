@@ -30,16 +30,16 @@
 
         {{-- Menggabungkan Teks, Logo, dan Form dalam satu container modern --}}
         <div
-            class="bg-black bg-opacity-50 p-8 rounded-lg shadow-2xl w-full max-w-md text-center border-2 border-yellow-500/50">
+            class="bg-black bg-opacity-50 p-6 sm:p-8 rounded-lg shadow-2xl w-full max-w-md text-center border-2 border-yellow-500/50">
 
             {{-- Teks "Amira Collections" --}}
-            <h2 class="text-3xl font-bold text-yellow-400 mb-2 font-cinzel tracking-widest">
+            <h2 class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2 font-cinzel tracking-widest">
                 Amira Collections
             </h2>
 
             {{-- Logo yang diperbesar --}}
             <img src="{{ asset('assets/images/logoamira.png') }}" alt="Amira Collections Logo"
-                class="w-40 h-40 mx-auto mb-4">
+                class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4">
 
             @if ($errors->any())
                 <div class="text-red-500 text-sm mb-4">
@@ -82,7 +82,8 @@
 
             {{-- [PERUBAHAN] Ikon Kontak dan Lokasi yang Lebih Rapi --}}
             <div class="mt-8 pt-6 border-t border-gray-600">
-                <div class="flex justify-center items-center space-x-6 md:space-x-8 text-gray-300 text-sm">
+                <div
+                    class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8 text-gray-300 text-sm">
                     {{-- WhatsApp --}}
                     <a href="https://wa.me/6285235743700" target="_blank"
                         class="flex items-center space-x-2 hover:text-yellow-400 transition-colors duration-300">

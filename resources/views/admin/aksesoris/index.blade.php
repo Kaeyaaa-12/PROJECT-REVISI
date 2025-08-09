@@ -3,14 +3,14 @@
 @section('title', 'Aksesoris')
 
 @section('content')
-    <div style="background-color: #2d2d2d;" class="p-8 rounded-lg">
-        <div class="flex justify-between items-center mb-12">
+    <div style="background-color: #2d2d2d;" class="p-4 sm:p-8 rounded-lg">
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-12 space-y-4 sm:space-y-0">
             <div class="text-center w-full">
-                <h1 class="text-4xl font-bold">Aksesoris</h1>
+                <h1 class="text-3xl sm:text-4xl font-bold">Aksesoris</h1>
                 <p class="text-gray-400 mt-2">Halaman Kelola Aksesoris</p>
             </div>
             <a href="{{ route('admin.aksesoris.create') }}"
-                class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex-shrink-0">
+                class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex-shrink-0 w-full sm:w-auto text-center">
                 Tambah Aksesoris
             </a>
         </div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             @empty
-                <p class="text-white col-span-4 text-center">Belum ada aksesoris.</p>
+                <p class="text-white col-span-full text-center">Belum ada aksesoris.</p>
             @endforelse
         </div>
         <div class="mt-8">

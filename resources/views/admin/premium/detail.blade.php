@@ -8,7 +8,7 @@
             &larr; KEMBALI KE KOLEKSI PREMIUM
         </a>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
                 <div class="mb-4">
                     <img src="{{ $collection->image ? asset('storage/' . $collection->image) : 'https://via.placeholder.com/600x700' }}"
@@ -16,9 +16,9 @@
                 </div>
             </div>
 
-            <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
-                <h1 class="text-3xl font-bold text-white mb-2">{{ $collection->category }}</h1>
-                <h2 class="text-5xl font-extrabold text-white mb-6">{{ $collection->name }}</h2>
+            <div class="bg-gray-800 p-6 sm:p-8 rounded-lg shadow-lg">
+                <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">{{ $collection->category }}</h1>
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6">{{ $collection->name }}</h2>
 
                 @if (session('success'))
                     <div class="bg-green-500 text-white p-3 rounded mb-4 text-sm">
@@ -89,7 +89,7 @@
                             <div class="text-gray-400">Fri</div>
                             <div class="text-gray-400">Sat</div>
                         </div>
-                        <div id="calendar-days" class="grid grid-cols-7 gap-2 text-center text-sm mt-2">
+                        <div id="calendar-days" class="grid grid-cols-7 gap-1 sm:gap-2 text-center text-xs sm:text-sm mt-2">
                         </div>
                         <div class="flex items-center mt-4 text-xs">
                             <div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
@@ -141,7 +141,7 @@
                     const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                     const loopDate = new Date(year, month, day);
 
-                    let dayClass = 'text-white rounded-full p-2';
+                    let dayClass = 'text-white rounded-full p-1 sm:p-2';
 
                     if (rentedDates.includes(dateStr)) {
                         dayClass += ' bg-red-600';
